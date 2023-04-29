@@ -1,5 +1,5 @@
 import { getData } from "../api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Suggestions from "./Suggestions";
 import NavBar from "./NavBar";
 
@@ -11,12 +11,10 @@ const Header = () => {
       setBgImage({ url, photographer, photographer_url })
     );
 
-  bgPhoto();
-
   return (
     <header>
       <div>
-        <img src={bgImage.url} />
+        <img src={bgImage?.url || null} />
         <h1>
           Лучшие бесплатные стоковые фото, изображения без роялти и видео от
           талантливый авторов.
@@ -29,7 +27,9 @@ const Header = () => {
         </div>
         <p>
           Автор фото —
-          <a href={bgImage.photographer_url}>{bgImage.photographer}</a>
+          <a href={bgImage?.photographer_url || null}>
+            {bgImage?.photographer || null}
+          </a>
         </p>
       </div>
     </header>

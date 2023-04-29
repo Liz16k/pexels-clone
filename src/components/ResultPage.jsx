@@ -1,5 +1,8 @@
+import { useParams } from "react-router-dom";
+
 const ResultPage = () => {
-  return <h1>result of searching</h1>;
+  const params = useParams();
+  return <h1>result of searching: {params.category}</h1>;
 };
 
 export default ResultPage;
