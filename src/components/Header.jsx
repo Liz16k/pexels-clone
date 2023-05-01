@@ -1,20 +1,17 @@
-import { getData } from "../api";
-import { useEffect, useState } from "react";
 import Suggestions from "./Suggestions";
 import NavBar from "./NavBar";
+import { useEffect } from "react";
+import { loadBg } from "./../api";
 
 const Header = () => {
-  const [bgImage, setBgImage] = useState({});
-
-  const bgPhoto = () =>
-    getData().then(({ url, photographer, photographer_url }) =>
-      setBgImage({ url, photographer, photographer_url })
-    );
+  useEffect(() => {
+    loadBg();
+  }, []);
 
   return (
     <header>
-      <div>
-        <img src={bgImage?.url || null} />
+      <div id="header_wrapper">
+        <img id="bgImage" src="" alt="" />
         <h1>
           Лучшие бесплатные стоковые фото, изображения без роялти и видео от
           талантливый авторов.
@@ -26,10 +23,7 @@ const Header = () => {
           </p>
         </div>
         <p>
-          Автор фото —
-          <a href={bgImage?.photographer_url || null}>
-            {bgImage?.photographer || null}
-          </a>
+          Автор фото —<a id="bgCaption" href="/"></a>
         </p>
       </div>
     </header>
