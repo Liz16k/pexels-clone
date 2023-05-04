@@ -1,9 +1,16 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const SearchForm = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const params = useParams();
+
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      request: params.category,
+    },
+  });
   const onSubmit = (data) => {
     navigate(`search/${encodeURIComponent(data.request)}`);
   };
