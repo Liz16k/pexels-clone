@@ -23,7 +23,7 @@ const Header = () => {
           </p>
         </div>
         <p>
-          Автор фото —<a id="bgCaption" href="/"></a>
+          Автор фото —<a id="bgCaption" href="/" target="_blank"></a>
         </p>
       </div>
     </header>

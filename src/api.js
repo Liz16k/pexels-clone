@@ -7,7 +7,7 @@ const client = createClient(apikey);
 const loadBg = () => {
   const bgImage = document.getElementById("bgImage");
   const bgCaption = document.getElementById("bgCaption");
-  getCuratedPhotos(1, 5)
+  getCuratedPhotos({ pageNum: 1, perPage: 5 })
     .then((photos) => photos[getRandomNum(5)])
     .then((photo) => {
       bgImage.setAttribute("src", photo.src.landscape);
@@ -17,7 +17,7 @@ const loadBg = () => {
     });
 };
 
-const getCuratedPhotos = async (pageNum = 1, perPage = 1) => {
+const getCuratedPhotos = async ({ pageNum = 1, perPage = 1 }) => {
   const response = await client.photos.curated({
     page: pageNum,
     per_page: perPage,
@@ -25,7 +25,7 @@ const getCuratedPhotos = async (pageNum = 1, perPage = 1) => {
   return response.photos;
 };
 
-const getCategoryPhotos = async (query = "", pageNum = 1, perPage = 10) => {
+const getCategoryPhotos = async ({ query = "", pageNum = 1, perPage = 10 }) => {
   const response = await client.photos.search({
     query,
     per_page: perPage,
