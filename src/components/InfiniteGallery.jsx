@@ -6,6 +6,10 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    setImages([]);
+  }, [args.query]);
+
+  useEffect(() => {
     const sentinel = document.querySelector("#sentinel");
     const observer = new IntersectionObserver(
       (entries) => {

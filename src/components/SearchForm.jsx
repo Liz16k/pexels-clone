@@ -11,8 +11,16 @@ const SearchForm = () => {
       request: params.category,
     },
   });
+  
   const onSubmit = (data) => {
     navigate(`search/${encodeURIComponent(data.request)}`);
+    removeFocus();
+  };
+
+  const removeFocus = () => {
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   };
 
   return (
