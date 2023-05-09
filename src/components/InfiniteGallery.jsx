@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { CardImage } from "./CardImage";
+import { Loader } from "./Loader";
 
 export const InfiniteGallery = ({ queryFn, ...args }) => {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setImages([]);
@@ -14,9 +16,13 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
+          setLoading(true);
           queryFn({ ...args, pageNum: page }).then((response) => {
-            setImages([...images, ...response]);
-            setPage(page + 1);
+            setTimeout(() => {
+              setImages([...images, ...response]);
+              setPage(page + 1);
+              setLoading(false);
+            }, 500);
           });
         }
       },
@@ -30,12 +36,13 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
 
   return (
     <>
-      {images.length &&
-        images.map((img) => <CardImage imgData={img} key={img.id} />)}
-      <div
-        style={{ height: "50px", backgroundColor: "#19ab76" }}
-        id="sentinel"
-      />
+      <Loader isloading={loading} />
+      {images.length ? (
+        images.map((img) => <CardImage imgData={img} key={img.id} />)
+      ) : (
+        <p>No results for this request. Try to refine your search query.</p>
+      )}
+      <div style={{ height: "2rem" }} id="sentinel" />
     </>
   );
 };
