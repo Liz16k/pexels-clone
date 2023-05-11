@@ -11,7 +11,7 @@ const SearchForm = () => {
       request: params.category,
     },
   });
-  
+
   const onSubmit = (data) => {
     navigate(`search/${encodeURIComponent(data.request)}`);
     removeFocus();
