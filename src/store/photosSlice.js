@@ -30,6 +30,7 @@ const photosSlice = createSlice({
     },
     clrGallery: (state) => {
       state.loadedPhotos.length = 0;
+      state.page = 1;
     },
   },
 });
