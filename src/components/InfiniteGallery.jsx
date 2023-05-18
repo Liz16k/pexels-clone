@@ -9,6 +9,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
   const [loading, setLoading] = useState(false);
   const photos = useSelector((state) => state.photos.loadedPhotos);
   const page = useSelector((state) => state.photos.page);
+  const [isActive, setActive] = useState(true);
 
   useEffect(() => {
     dispatch(clrGallery());
@@ -18,9 +19,14 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
     const sentinel = document.querySelector("#sentinel");
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
+        if (entries[0].isIntersecting && isActive) {
           setLoading(true);
           queryFn({ ...args, pageNum: page }).then((newImages) => {
+            if (newImages.length === 0) {
+              setActive(false);
+              setLoading(false);
+              return;
+            }
             setTimeout(() => {
               dispatch(addPhotos(newImages));
               setLoading(false);
