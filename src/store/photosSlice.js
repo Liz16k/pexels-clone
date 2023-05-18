@@ -15,7 +15,7 @@ const photosSlice = createSlice({
     },
     removeLikedPhoto: (state, action) => {
       state.likedPhotos = state.likedPhotos.filter(
-        (photo) => photo.id !== action.payload.id
+        (photoId) => photoId !== action.payload
       );
     },
     addPhotos: (state, action) => {

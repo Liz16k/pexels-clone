@@ -13,6 +13,7 @@ export const CardImage = ({ imgData }) => {
     backgroundColor: "transparent",
     height: "1.5rem",
     width: "1.5rem",
+    cursor: "pointer",
   };
   return (
     <div>
@@ -24,7 +25,7 @@ export const CardImage = ({ imgData }) => {
         <div>
           <button
             style={{
-              backgroundImage: `url('src/assets/favorite_${
+              backgroundImage: `url('/src/assets/favorite_${
                 photos.likedPhotos.includes(id) ? "fill" : "outline"
               }.png')`,
               ...btnStyles,
@@ -37,7 +38,7 @@ export const CardImage = ({ imgData }) => {
           ></button>
           <button
             style={{
-              backgroundImage: "url('src/assets/download.png')",
+              backgroundImage: "url('/src/assets/download.png')",
               ...btnStyles,
             }}
             onClick={() => downloadImage(src.original, alt)}
