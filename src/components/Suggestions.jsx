@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SuggestionLink from "./elements/SuggestionLink";
 
 export const Suggestions = () => {
   const categoryList =
@@ -12,9 +12,12 @@ export const Suggestions = () => {
 
   return suggestCategories.map((category) => {
     return (
-      <Link to={`/search/${encodeURIComponent(category)}`} key={category}>
-        {category}
-      </Link>
+      <SuggestionLink
+        to={`/search/${encodeURIComponent(category)}`}
+        key={category}
+      >
+        {category + `${category == suggestCategories.at(-1) ? "" : ", "}`}
+      </SuggestionLink>
     );
   });
 };

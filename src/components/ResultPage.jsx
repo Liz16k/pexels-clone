@@ -5,14 +5,14 @@ import { InfiniteGallery } from "./InfiniteGallery";
 const ResultPage = () => {
   const params = useParams();
   return (
-    <div>
+    <main>
       <h1>result of searching: {params.category}</h1>
       <InfiniteGallery
         queryFn={getCategoryPhotos}
         query={params.category}
         perPage={5}
       />
-    </div>
+    </main>
   );
 };
 

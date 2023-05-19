@@ -1,21 +1,11 @@
 import SearchForm from "./SearchForm";
+import Nav from "./elements/Nav";
 const NavBar = () => {
   return (
-    <nav>
-      <div>
-        <div>
-          <img
-            src="https://www.drupal.org/files/project-images/pexels_logo_0.png"
-            alt="logo"
-            width="3%"
-          />
-          <div>Pexels</div>
-        </div>
-        <div>
-          <SearchForm />
-        </div>
-      </div>
-    </nav>
+    <Nav>
+      <img height="50px" src="/src/assets/pexels-white.png" alt="pexels logo" />
+      <SearchForm />
+    </Nav>
   );
 };
 

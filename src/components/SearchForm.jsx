@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import SearchButton from "./elements/SearchButton";
+import SearchContainer from "./elements/SearchContainer";
+import SearchInput from './elements/SearchInput';
 
 const SearchForm = () => {
   const navigate = useNavigate();
@@ -24,11 +27,11 @@ const SearchForm = () => {
   };
 
   return (
-    <form action="" onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <input type="text" {...register("request")} />
-        <button>Search</button>
-      </div>
+    <form onSubmit={handleSubmit(onSubmit)} style={{width: "100%"}}>
+      <SearchContainer>
+        <SearchInput type="text" {...register("request")} placeholder="Search for free photos" />
+        <SearchButton />
+      </SearchContainer>
     </form>
   );
 };

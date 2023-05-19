@@ -12,6 +12,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
   const [isActive, setActive] = useState(true);
 
   useEffect(() => {
+    setActive(true);
     dispatch(clrGallery());
   }, [args.query]);
 
@@ -35,7 +36,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
           });
         }
       },
-      { threshold: 1 }
+      { threshold: 0.5 }
     );
     observer.observe(sentinel);
     return () => {

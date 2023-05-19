@@ -1,7 +1,9 @@
 import Suggestions from "./Suggestions";
-import NavBar from "./NavBar";
 import { useEffect } from "react";
 import { loadBg } from "./../api";
+import BgImg from "./elements/BgImg";
+import SearchForm from "./SearchForm";
+import HeaderContainer from "./elements/HeaderContainer";
 
 const Header = () => {
   useEffect(() => {
@@ -10,13 +12,13 @@ const Header = () => {
 
   return (
     <header>
-      <div id="header_wrapper">
-        <img id="bgImage" src="" alt="" />
+      <BgImg id="bgImage" />
+      <HeaderContainer>
         <h1>
           Лучшие бесплатные стоковые фото, изображения без роялти и видео от
           талантливый авторов.
         </h1>
-        <NavBar />
+        <SearchForm />
         <div>
           <p>
             Тенденции: <Suggestions />
@@ -25,7 +27,7 @@ const Header = () => {
         <p>
           Автор фото —<a id="bgCaption" href="/" target="_blank"></a>
         </p>
-      </div>
+      </HeaderContainer>
     </header>
   );
 };
