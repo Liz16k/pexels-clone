@@ -6,6 +6,7 @@ const SearchContainer = styled.div`
   display: flex;
   border-radius: 8px;
   overflow: hidden;
+  background-color: white;
 `;
 
 export default SearchContainer;

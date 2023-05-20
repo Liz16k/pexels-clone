@@ -7,7 +7,6 @@ export const MainPage = () => {
     <>
       <Header />
       <main>
-        <h1>Home page</h1>
         <InfiniteGallery queryFn={getCuratedPhotos} perPage={5} />
       </main>
     </>

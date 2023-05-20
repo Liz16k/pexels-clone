@@ -16,6 +16,10 @@ body, html {
   line-height: 1.4;
 }
 
+header {
+  position: relative;
+}
+
 main {
   padding: 0 30px;
   max-width: 1300px;
@@ -36,6 +40,10 @@ button {
 input {
   background-color: white;
   border: none;
+}
+
+h1 {
+  color: white;
 }
 
 `;

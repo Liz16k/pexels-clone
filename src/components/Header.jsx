@@ -4,6 +4,8 @@ import { loadBg } from "./../api";
 import BgImg from "./elements/BgImg";
 import SearchForm from "./SearchForm";
 import HeaderContainer from "./elements/HeaderContainer";
+import { TransparentParagraph } from "./elements/TransparentParagraph";
+import { Attribution } from "./elements/Attribution";
 
 const Header = () => {
   useEffect(() => {
@@ -19,14 +21,14 @@ const Header = () => {
           талантливый авторов.
         </h1>
         <SearchForm />
-        <div>
-          <p>
-            Тенденции: <Suggestions />
-          </p>
-        </div>
-        <p>
-          Автор фото —<a id="bgCaption" href="/" target="_blank"></a>
-        </p>
+        <TransparentParagraph>
+          <span>Тенденции: </span>
+          <Suggestions />
+        </TransparentParagraph>
+        <Attribution>
+          <span>Автор фото —</span>
+          <a id="bgCaption" href="/" target="_blank"></a>
+        </Attribution>
       </HeaderContainer>
     </header>
   );

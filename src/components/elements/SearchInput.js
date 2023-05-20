@@ -6,6 +6,10 @@ const SearchInput = styled.input`
   padding: 1rem;
   font-size: 18px;
   flex-grow: 1;
+  &:focus {
+    outline: none;
+    border-right: 2px solid #dfdfe0;
+  }
 `;
 
 export default SearchInput;
