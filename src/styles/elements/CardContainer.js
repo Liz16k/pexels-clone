@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  width: fit-content;
-  height: fit-content;
   position: relative;
   overflow: hidden;
+  margin-bottom: 20px;
   &:hover {
     & img {
       filter: brightness(0.8);

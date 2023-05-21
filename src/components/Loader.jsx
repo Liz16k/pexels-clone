@@ -4,6 +4,7 @@ export const Loader = ({ isloading }) => {
   return (
     <div
       style={{
+        zIndex: "5",
         height: "4rem",
         width: "100%",
         position: "fixed",

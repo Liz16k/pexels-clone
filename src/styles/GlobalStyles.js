@@ -22,6 +22,7 @@ header {
 
 main {
   padding: 30px;
+  padding-bottom: 0;
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -44,6 +45,12 @@ input {
 
 h1 {
   color: white;
+}
+
+h4 {
+  font-size: 23px;
+  color: #2c343e;
+  margin-bottom: 30px;
 }
 
 `;

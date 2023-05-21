@@ -18,7 +18,7 @@ export const CardImage = ({ imgData }) => {
 
   return (
     <CardContainer>
-      <img src={src.medium} alt={alt} />
+      <img src={src.large} alt={alt} width={"100%"}/>
       <CardOverlay>
         <CardButton
           role="like"
