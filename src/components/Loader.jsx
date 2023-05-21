@@ -1,25 +1,15 @@
 import { PropagateLoader } from "react-spinners";
+import { LoaderContainer } from "../styles/elements/LoaderContainer";
 
 export const Loader = ({ isloading }) => {
   return (
-    <div
-      style={{
-        zIndex: "5",
-        height: "4rem",
-        width: "100%",
-        position: "fixed",
-        bottom: "2rem",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <LoaderContainer>
       <PropagateLoader
         color="#000000"
         size={20}
         speedMultiplier={1}
         loading={isloading}
       />
-    </div>
+    </LoaderContainer>
   );
 };

@@ -27,7 +27,7 @@ const SearchForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <SearchContainer>
         <SearchInput
           type="text"

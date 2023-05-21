@@ -27,6 +27,10 @@ main {
   margin: 0 auto;
 }
 
+form {
+  width: 100%;
+}
+
 a {
   color: inherit;
   text-decoration: none;
