@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { downloadImage } from "./../api";
 import { addLikedPhoto, removeLikedPhoto } from "../store/photosSlice";
-import CardButton from "./elements/CardButton";
+import CardButton from "../styles/elements/CardButton";
+import { CardOverlay } from "../styles/elements/CardOverlay";
+import { CardContainer } from "../styles/elements/CardContainer";
 
 export const CardImage = ({ imgData }) => {
   const { photographer, photographer_url, src, alt, id } = imgData;
@@ -15,24 +17,29 @@ export const CardImage = ({ imgData }) => {
   };
 
   return (
-    <div>
+    <CardContainer>
       <img src={src.medium} alt={alt} />
-      <div>
-        <div>
+      <CardOverlay>
+        <CardButton
+          role="like"
+          iconSrc={
+            "url('/src/assets/" +
+            (photos.likedPhotos.includes(id)
+              ? "favorite_fill.png')"
+              : "favorite_outline.png')")
+          }
+          isLiked={photos.likedPhotos.includes(id)}
+          onClick={setLike}
+        />
+        <p>
           <a href={photographer_url}>{photographer}</a>
-        </div>
-        <div>
           <CardButton
-            type="download"
+            role="download"
+            iconSrc="url('/src/assets/download.png')"
             onClick={() => downloadImage(src.original, alt)}
           />
-          <CardButton
-            type="like"
-            isLiked={photos.likedPhotos.includes(id)}
-            onClick={setLike}
-          />
-        </div>
-      </div>
-    </div>
+        </p>
+      </CardOverlay>
+    </CardContainer>
   );
 };

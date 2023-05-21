@@ -36,7 +36,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
           });
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5, rootMargin: "500px" }
     );
     observer.observe(sentinel);
     return () => {
