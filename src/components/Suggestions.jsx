@@ -1,4 +1,4 @@
-import SuggestionLink from "./elements/SuggestionLink";
+import SuggestionLink from "../styles/elements/SuggestionLink";
 
 export const Suggestions = () => {
   const categoryList =

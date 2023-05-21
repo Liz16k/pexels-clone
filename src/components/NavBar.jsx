@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SearchForm from "./SearchForm";
-import Nav from "./elements/Nav";
+import Nav from "../styles/elements/Nav"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 

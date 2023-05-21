@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Nav = styled.nav`
-  z-index: 2;
+  z-index: 4;
   position: ${(props) => (props.transparent ? "absolute" : "fixed")};
   background-color: ${(props) => (props.transparent ? "" : "white")};
   display: flex;
@@ -12,7 +12,8 @@ const Nav = styled.nav`
     filter: brightness(0.8);
     cursor: pointer;
   }
-  & input, button {
+  & input,
+  button {
     background-color: #f7f7f7;
   }
 `;
