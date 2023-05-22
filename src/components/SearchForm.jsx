@@ -16,7 +16,7 @@ const SearchForm = () => {
   });
 
   const onSubmit = (data) => {
-    navigate(`search/${encodeURIComponent(data.request)}`);
+    navigate(`search/${encodeURIComponent(data.request)}/`);
     removeFocus();
   };
 
@@ -32,7 +32,7 @@ const SearchForm = () => {
         <SearchInput
           type="text"
           {...register("request")}
-          placeholder="Search for free photos"
+          placeholder="Поиск бесплатных изображений"
         />
         <SearchButton />
       </SearchContainer>

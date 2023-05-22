@@ -4,6 +4,7 @@ const initialState = {
   loadedPhotos: [],
   page: 1,
   likedPhotos: [],
+  responsePhotoAmount: 0,
 };
 
 const photosSlice = createSlice({
@@ -32,6 +33,9 @@ const photosSlice = createSlice({
       state.loadedPhotos.length = 0;
       state.page = 1;
     },
+    updateTotalPhotos: (state, action) => {
+      state.responsePhotoAmount = action.payload;
+    },
   },
 });
 
@@ -41,5 +45,6 @@ export const {
   addPhotos,
   clrGallery,
   loadPage,
+  updateTotalPhotos,
 } = photosSlice.actions;
 export default photosSlice.reducer;

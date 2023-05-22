@@ -8,7 +8,11 @@ export const MainPage = () => {
       <Header />
       <main>
         <h4>Бесплатные стоковые фото</h4>
-        <InfiniteGallery queryFn={getCuratedPhotos} perPage={5} />
+        <InfiniteGallery
+          type={"curated"}
+          queryFn={getCuratedPhotos}
+          perPage={5}
+        />
       </main>
     </>
   );

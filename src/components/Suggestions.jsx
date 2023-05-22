@@ -13,7 +13,7 @@ export const Suggestions = () => {
   return suggestCategories.map((category) => {
     return (
       <SuggestionLink
-        to={`/search/${encodeURIComponent(category)}`}
+        to={`/search/${encodeURIComponent(category)}/`}
         key={category}
       >
         {category + `${category == suggestCategories.at(-1) ? "" : ", "}`}

@@ -7,8 +7,10 @@ export const GalleryContainer = styled.div`
     gap: 0.5rem;
     width: 100%;
   }
-
   & .column:not(:last-child) {
     margin-right: 20px;
+  }
+  & p {
+    text-align: center;
   }
 `;

@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import { CardImage } from "./CardImage";
 import { Loader } from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { addPhotos, clrGallery, loadPage } from "../store/photosSlice";
+import {
+  addPhotos,
+  clrGallery,
+  loadPage,
+  updateTotalPhotos,
+} from "../store/photosSlice";
 import Masonry from "react-masonry-css";
-import { GalleryContainer } from './../styles/elements/GalleryContainer';
+import { GalleryContainer } from "./../styles/elements/GalleryContainer";
+import { useLocation } from "react-router-dom";
 
 export const InfiniteGallery = ({ queryFn, ...args }) => {
   const dispatch = useDispatch();
@@ -13,10 +19,17 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
   const page = useSelector((state) => state.photos.page);
   const [isActive, setActive] = useState(true);
 
+  const location = useLocation();
+  const searchparams = new URLSearchParams(location.search);
+  const { size, orientation } = {
+    size: searchparams.get("size"),
+    orientation: searchparams.get("orientation"),
+  };
+
   useEffect(() => {
     setActive(true);
     dispatch(clrGallery());
-  }, [args.query]);
+  }, [args.query, location]);
 
   useEffect(() => {
     const sentinel = document.querySelector("#sentinel");
@@ -24,21 +37,38 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
       (entries) => {
         if (entries[0].isIntersecting && isActive) {
           setLoading(true);
-          queryFn({ ...args, pageNum: page }).then((newImages) => {
-            if (newImages.length === 0) {
-              setActive(false);
-              setLoading(false);
-              return;
-            }
-            setTimeout(() => {
-              dispatch(addPhotos(newImages));
-              setLoading(false);
-              dispatch(loadPage());
-            }, 500);
-          });
+          queryFn({
+            ...args,
+            pageNum: page,
+            params: {
+              size,
+              orientation,
+            },
+          })
+            .then((response) => {
+              if (args.type === "category") {
+                if (page === 1) {
+                  dispatch(updateTotalPhotos(response.total));
+                }
+                return response.photos;
+              }
+              return response;
+            })
+            .then((newImages) => {
+              if (newImages.length === 0) {
+                setActive(false);
+                setLoading(false);
+                return;
+              }
+              setTimeout(() => {
+                dispatch(addPhotos(newImages));
+                setLoading(false);
+                dispatch(loadPage());
+              });
+            });
         }
       },
-      { threshold: 0.5, rootMargin: "800px" }
+      { threshold: 0.5, rootMargin: "400px" }
     );
     observer.observe(sentinel);
     return () => {

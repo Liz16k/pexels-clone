@@ -25,13 +25,20 @@ const getCuratedPhotos = async ({ pageNum = 1, perPage = 1 }) => {
   return response.photos;
 };
 
-const getCategoryPhotos = async ({ query = "", pageNum = 1, perPage = 10 }) => {
+const getCategoryPhotos = async ({
+  query = "",
+  pageNum = 1,
+  perPage = 10,
+  params = null,
+}) => {
   const response = await client.photos.search({
     query,
     per_page: perPage,
     page: pageNum,
+    orientation: params?.orientation,
+    size: params?.size,
   });
-  return response.photos;
+  return { photos: response.photos, total: response.total_results };
 };
 
 function downloadImage(url, alt) {
