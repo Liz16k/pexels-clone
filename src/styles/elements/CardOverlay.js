@@ -8,7 +8,7 @@ export const CardOverlay = styled.div`
   opacity: 0;
   width: 100%;
   height: 100%;
-  padding: 10px 10px 15px;
+  padding: 15px 15px 20px;
   color: white;
   display: flex;
   flex-direction: column;

@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body, html {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans',-apple-system, "BlinkMacSystemFont","Segoe UI","Roboto","Ubuntu", sans-serif;
   line-height: 1.4;
 }
 

@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 const SearchButton = styled.button`
-  background-image: url("/src/assets/search.png");
-  background-color: white;
-  background-position: center;
-  background-size: 50%;
-  background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
+  width: 3rem;
   opacity: 0.6;
+  cursor: pointer;
+  &:hover svg {
+    fill: #05a081;
+  }
+  & svg {
+    width: 35px;
+    padding-right: .5rem;
+  }
 `;
 
 export default SearchButton;

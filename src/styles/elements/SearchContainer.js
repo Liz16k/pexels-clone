@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SearchContainer = styled.div`
-  height: 50px;
+  height: 45px;
   width: 100%;
   display: flex;
   border-radius: 8px;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LoaderContainer = styled.div`
-  z-index: 5;
+  z-index: 2;
   height: 4rem;
   width: 100%;
   position: fixed;

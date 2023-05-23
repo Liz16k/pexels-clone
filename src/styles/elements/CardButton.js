@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 const CardButton = styled.button`
-  background-image: ${(props) => props.iconSrc};
-  background-position: center;
-  background-size: 60%;
-  background-repeat: no-repeat;
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   background-color: white;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
     filter: brightness(0.8);
   }
