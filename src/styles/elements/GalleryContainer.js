@@ -4,11 +4,12 @@ export const GalleryContainer = styled.div`
   position: relative;
   & .gallery {
     display: flex;
-    gap: 0.5rem;
     width: 100%;
-  }
   & .column:not(:last-child) {
-    margin-right: 20px;
+    margin-right: 1.5rem;
+    @media (max-width: 900px) {
+      margin-right: 0.8rem;
+    }
   }
   & p {
     text-align: center;

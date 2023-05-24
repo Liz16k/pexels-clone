@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ListItem = styled.li`
+  width: 100%;
   list-style: none;
   padding: 0.5rem 0;
   &:not(:last-of-type) {

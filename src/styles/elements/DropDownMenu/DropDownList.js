@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const DropDownList = styled.ul`
-  margin-top: 1rem;
   width: 100%;
   position: absolute;
+  top: 0rem;
   text-align: center;
   background: white;
   border: 1px solid #dfdfe0;

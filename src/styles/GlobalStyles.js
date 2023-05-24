@@ -21,10 +21,13 @@ header {
 }
 
 main {
-  padding: 30px;
+  padding: 2rem;
   padding-bottom: 0;
   max-width: 1300px;
   margin: 0 auto;
+  @media (max-width: 900px) {
+    padding: 1rem 1rem 0;
+  }
 }
 
 form {
@@ -55,6 +58,14 @@ h4 {
   font-size: 23px;
   color: #2c343e;
   margin-bottom: 30px;
+}
+
+img, a, button {
+  transition: all .2s ease-out;
+}
+
+nav {
+  transition: all .25s ease-out;
 }
 
 `;

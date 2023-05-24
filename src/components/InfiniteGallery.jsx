@@ -11,6 +11,7 @@ import {
 import Masonry from "react-masonry-css";
 import { GalleryContainer } from "./../styles/elements/GalleryContainer";
 import { useLocation } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 export const InfiniteGallery = ({ queryFn, ...args }) => {
   const dispatch = useDispatch();
@@ -18,6 +19,8 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
   const photos = useSelector((state) => state.photos.loadedPhotos);
   const page = useSelector((state) => state.photos.page);
   const [isActive, setActive] = useState(true);
+  
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 900px)" });
 
   const location = useLocation();
   const searchparams = new URLSearchParams(location.search);
@@ -81,7 +84,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
       <Loader isloading={loading} />
       {photos.length ? (
         <Masonry
-          breakpointCols={3}
+          breakpointCols={isTabletOrMobile ? 2 : 3}
           className={"gallery"}
           columnClassName={"column"}
         >
