@@ -9,7 +9,7 @@ const SearchButton = styled.button`
   }
   & svg {
     width: 35px;
-    padding-right: .5rem;
+    padding: 0 0.5rem;
   }
 `;
 

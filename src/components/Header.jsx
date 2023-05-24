@@ -14,8 +14,8 @@ const Header = () => {
 
   return (
     <header>
-      <BgImg id="bgImage" />
       <HeaderContainer>
+        <BgImg id="bgImage" />
         <h1>
           Лучшие бесплатные стоковые фото, изображения без роялти и видео от
           талантливый авторов.

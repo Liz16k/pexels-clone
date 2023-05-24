@@ -9,7 +9,7 @@ const SearchInput = styled.input`
   flex-grow: 1;
   &:focus {
     outline: none;
-    border-right: 2px solid #dfdfe0;
+    border-right: 1px solid #dfdfe0;
   }
 `;
 

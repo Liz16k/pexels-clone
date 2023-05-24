@@ -41,7 +41,7 @@ export const CardImage = ({ imgData }) => {
           )}
         </CardButton>
         <p>
-          <a href={photographer_url}>{photographer}</a>
+          <a className="image__author" href={photographer_url}>{photographer}</a>
           <CardButton
             role="download"
             onClick={() => downloadImage(src.original, alt)}

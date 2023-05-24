@@ -6,7 +6,7 @@ const SuggestionLink = styled(Link)`
   font-weight: bold;
   color: white;
   &:hover{
-    color: grey;
+    filter: brightness(0.7);
   }
 `;
 
