@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { ErrorPage } from "../components/ErrorPage";
-import { MainPage } from "../components/MainPage";
+import { MainPage } from "../components/MainPage/MainPage";
 import ResultPage from "../components/ResultPage";
 import { Layout } from "../components/Layout";
 

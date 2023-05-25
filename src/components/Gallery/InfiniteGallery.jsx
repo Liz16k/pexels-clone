@@ -95,7 +95,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
       ) : (
         <p>No results for this request. Try to refine your search query.</p>
       )}
-      <div style={{ height: "2rem" }} id="sentinel" />
+      <div id="sentinel" />
     </GalleryContainer>
   );
 };
