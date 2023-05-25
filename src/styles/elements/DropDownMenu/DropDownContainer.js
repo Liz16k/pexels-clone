@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DropDownContainer = styled.div`
+  position: relative;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
@@ -9,7 +10,9 @@ export const DropDownContainer = styled.div`
   border-radius: 0.5rem;
   background: white;
   text-align: center;
-  & p, li {
+  & p,
+  li,
+  img {
     opacity: 0.7;
   }
   &:hover {
@@ -18,19 +21,21 @@ export const DropDownContainer = styled.div`
   & > div {
     display: flex;
     align-items: center;
-    svg {
+    img {
       width: 1.5rem;
+      height: fit-content;
       margin-right: 0.5rem;
     }
   }
 
   @media (max-width: 540px) {
+    width: ${(props)=>props.isOpen ? "10rem": ""};
     & p {
       display: none;
       opacity: 0;
       z-index: 0;
     }
-    & > div svg {
+    & > div img {
       margin: 0;
     }
   }

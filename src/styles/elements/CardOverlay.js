@@ -18,7 +18,7 @@ export const CardOverlay = styled.div`
     justify-content: space-between;
     align-items: center;
   }
-  & p button[role="like"] {
+  & button[role="like"] {
     align-self: flex-end;
   }
   @media (max-width: 900px) {

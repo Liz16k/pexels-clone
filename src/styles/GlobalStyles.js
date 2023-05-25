@@ -21,12 +21,11 @@ header {
 }
 
 main {
-  padding: 2rem;
-  padding-bottom: 0;
+  padding: 5rem 2rem 0;
   max-width: 1300px;
   margin: 0 auto;
   @media (max-width: 900px) {
-    padding: 1rem 1rem 0;
+    padding: 4.5rem 1rem 0;
   }
 }
 

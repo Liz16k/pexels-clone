@@ -7,7 +7,7 @@ import { ResultH } from "./../styles/elements/ResultH";
 const ResultPage = () => {
   const params = useParams();
   return (
-    <main style={{ padding: "75px 30px 0px" }}>
+    <main>
       <CategoryParams />
       <ResultH>Изображения «{params.category}»</ResultH>
       <InfiniteGallery

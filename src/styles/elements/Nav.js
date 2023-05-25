@@ -16,7 +16,7 @@ const Nav = styled.nav`
     color: white;
     & svg {
       border-radius: 0.5rem;
-      transform: ;
+      margin-top: 5px;
       &:hover {
         filter: brightness(0.8);
         cursor: pointer;

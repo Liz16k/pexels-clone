@@ -6,7 +6,7 @@ export const MainPage = () => {
   return (
     <>
       <Header />
-      <main>
+      <main style={{paddingTop: "1.5rem"}}>
         <h4>Бесплатные стоковые фото</h4>
         <InfiniteGallery
           type={"curated"}
