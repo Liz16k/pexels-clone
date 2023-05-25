@@ -1,7 +1,7 @@
 import { createClient } from "pexels";
 import { saveAs } from "file-saver";
 
-const apikey = "JA9t93WzdvqLSVXTEtSvIOmuMkf1iwt5sVEOh8JV8GPWLj8QOkeBRS0S";
+const apikey = import.meta.env.VITE_PEXELS_API_KEY;
 const client = createClient(apikey);
 
 const loadBg = () => {
