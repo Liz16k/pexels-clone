@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SuggestionLink from "../styles/elements/SuggestionLink";
+import SuggestionLink from "./SuggestionLink.styles";
 
 export const Suggestions = () => {
   const categoryList =

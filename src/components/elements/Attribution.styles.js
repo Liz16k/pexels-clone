@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TransparentParagraph } from "./TransparentParagraph";
+import { TransparentParagraph } from "./TransparentParagraph.styles";
 
 export const Attribution = styled(TransparentParagraph)`
   font-size: 14px;
@@ -10,4 +10,4 @@ export const Attribution = styled(TransparentParagraph)`
   &:hover {
     opacity: 0.9;
   }
-`
+`;

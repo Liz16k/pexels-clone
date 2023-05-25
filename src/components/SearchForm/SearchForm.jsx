@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import SearchButton from "../styles/elements/SearchButton";
-import SearchContainer from "../styles/elements/SearchContainer";
-import SearchInput from "../styles/elements/SearchInput";
+import SearchButton from "./SearchButton.styles";
+import SearchContainer from "./SearchContainer.styles";
+import SearchInput from "./SearchInput.styles";
 
 const SearchForm = () => {
   const navigate = useNavigate();

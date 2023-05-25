@@ -1,5 +1,5 @@
 import { PropagateLoader } from "react-spinners";
-import { LoaderContainer } from "../styles/elements/LoaderContainer";
+import { LoaderContainer } from "./LoaderContainer.styles";
 
 export const Loader = ({ isloading }) => {
   return (

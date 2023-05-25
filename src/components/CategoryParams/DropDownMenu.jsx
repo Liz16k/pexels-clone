@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { DropDownContainer } from "/src/styles/elements/DropDownMenu/DropDownContainer";
-import { DropDownList } from "/src/styles/elements/DropDownMenu/DropDownList";
-import { ListItem } from "/src/styles/elements/DropDownMenu/ListItem";
+import { DropDownContainer } from "./DropDownContainer.styles";
+import { DropDownList } from "./DropDownList.styles";
+import { ListItem } from "./ListItem.styles";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const DropDownMenu = ({ options, paramName }) => {

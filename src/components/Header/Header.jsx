@@ -1,11 +1,11 @@
-import Suggestions from "./Suggestions";
 import { useEffect } from "react";
-import { loadBg } from "./../api";
-import BgImg from "../styles/elements/BgImg";
-import SearchForm from "./SearchForm";
-import HeaderContainer from "../styles/elements/HeaderContainer";
-import { TransparentParagraph } from "../styles/elements/TransparentParagraph";
-import { Attribution } from "../styles/elements/Attribution";
+import { loadBg } from "../../utils/api";
+import Suggestions from "./Suggestions";
+import BgImg from "./BgImg.styles";
+import SearchForm from "../SearchForm/SearchForm";
+import HeaderContainer from "./HeaderContainer.styles";
+import { TransparentParagraph } from "../elements/TransparentParagraph.styles";
+import { Attribution } from "../elements/Attribution.styles";
 
 const Header = () => {
   useEffect(() => {

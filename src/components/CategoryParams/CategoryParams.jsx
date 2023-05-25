@@ -1,15 +1,15 @@
 import { useSelector } from "react-redux";
-import { Amount } from "./../styles/elements/Amount";
-import { CategoryContainer } from "./../styles/elements/CategoryContainer";
+import { Amount } from "../elements/Amount.styles";
+import { CategoryContainer } from "./CategoryContainer.styles";
 import { DropDownMenu } from "./DropDownMenu";
-import { FiltersContainer } from "../styles/elements/FiltersContainer";
+import { FiltersContainer } from "./FiltersContainer.styles";
 const CategoryParams = () => {
   const total = useSelector((state) => state.photos.responsePhotoAmount);
   return (
     <CategoryContainer>
       <Amount>
         Фото <span>{total}</span>
-      </Amount>
+      </Amount> 
       <FiltersContainer>
         <DropDownMenu
           paramName="orientation"

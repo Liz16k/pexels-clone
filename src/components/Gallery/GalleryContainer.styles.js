@@ -5,6 +5,7 @@ export const GalleryContainer = styled.div`
   & .gallery {
     display: flex;
     width: 100%;
+  }
   & .column:not(:last-child) {
     margin-right: 1.5rem;
     @media (max-width: 900px) {

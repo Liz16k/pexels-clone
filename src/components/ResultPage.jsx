@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { getCategoryPhotos } from "../api";
-import { InfiniteGallery } from "./InfiniteGallery";
-import CategoryParams from "./CategoryParams";
-import { ResultH } from "./../styles/elements/ResultH";
+import { getCategoryPhotos } from "../utils/api";
+import { InfiniteGallery } from "./Gallery/InfiniteGallery";
+import CategoryParams from "./CategoryParams/CategoryParams"
+import { ResultH } from './elements/ResultH.styles';
 
 const ResultPage = () => {
   const params = useParams();

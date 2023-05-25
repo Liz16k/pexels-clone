@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { CardImage } from "./CardImage";
-import { Loader } from "./Loader";
+import { useLocation } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import Masonry from "react-masonry-css";
+import { CardImage } from "../ImageCard/CardImage";
+import { Loader } from "../Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addPhotos,
   clrGallery,
   loadPage,
   updateTotalPhotos,
-} from "../store/photosSlice";
-import Masonry from "react-masonry-css";
-import { GalleryContainer } from "./../styles/elements/GalleryContainer";
-import { useLocation } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+} from "../../store/photosSlice";
+import { GalleryContainer } from "./GalleryContainer.styles";
 
 export const InfiniteGallery = ({ queryFn, ...args }) => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
   const photos = useSelector((state) => state.photos.loadedPhotos);
   const page = useSelector((state) => state.photos.page);
   const [isActive, setActive] = useState(true);
-  
+
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 900px)" });
 
   const location = useLocation();

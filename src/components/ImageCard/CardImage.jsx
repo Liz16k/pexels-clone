@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { downloadImage } from "./../api";
-import { addLikedPhoto, removeLikedPhoto } from "../store/photosSlice";
-import CardButton from "../styles/elements/CardButton";
-import { CardOverlay } from "../styles/elements/CardOverlay";
-import { CardContainer } from "../styles/elements/CardContainer";
+import { downloadImage } from "../../utils/api";
+import { addLikedPhoto, removeLikedPhoto } from "../../store/photosSlice";
+import CardButton from "./CardButton.styles";
+import { CardOverlay } from "./CardOverlay.styles";
+import { CardContainer } from "./CardContainer.styles";
 
 export const CardImage = ({ imgData }) => {
   const { photographer, photographer_url, src, alt, id } = imgData;
