@@ -3,6 +3,7 @@ import { DropDownContainer } from "./DropDownContainer.styles";
 import { DropDownList } from "./DropDownList.styles";
 import { ListItem } from "./ListItem.styles";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getSearchParams } from './../../utils/getSearchParams';
 
 export const DropDownMenu = ({ options, paramName }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,28 +22,13 @@ export const DropDownMenu = ({ options, paramName }) => {
   };
 
   const onOptionClick = (value) => {
-    const searchParams = getSearchParams(value);
+    const searchParams = getSearchParams(value, paramName, location.search);
     if (selectedOption != value) setSelectedOption(value);
     setIsOpen(false);
     navigate({
       search: new URLSearchParams(searchParams).toString(),
     });
   };
-
-  function getSearchParams(newValue) {
-    const searchparams = new URLSearchParams(location.search);
-    const params = {
-      size: searchparams.get("size"),
-      orientation: searchparams.get("orientation"),
-    };
-    params[paramName] = newValue;
-
-    return Array.from(Object.keys(params)).reduce((res, key) => {
-      return params[key] && params[key] != "all"
-        ? { ...res, [key]: params[key] }
-        : { ...res };
-    }, {});
-  }
 
   return (
     <DropDownContainer>

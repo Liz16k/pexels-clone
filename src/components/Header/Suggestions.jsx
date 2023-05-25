@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SuggestionLink from "./SuggestionLink.styles";
+import { getUniqueRandomNums } from "./../../utils/getUniqueRandomNums";
 
 export const Suggestions = () => {
   const categoryList =
@@ -28,13 +29,5 @@ export const Suggestions = () => {
     );
   });
 };
-
-function getUniqueRandomNums(n) {
-  let set = new Set();
-  while (set.size < n) {
-    set.add(Math.floor(Math.random() * n));
-  }
-  return Array.from(set);
-}
 
 export default Suggestions;
