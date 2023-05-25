@@ -45,7 +45,7 @@ export const DropDownMenu = ({ options, paramName }) => {
   }
 
   return (
-    <DropDownContainer isOpen={isOpen}>
+    <DropDownContainer>
       <div onClick={() => toggleIsOpen()}>
         {paramName == "orientation" ? (
           <img src="/src/assets/orientation.svg" alt="orientation" />

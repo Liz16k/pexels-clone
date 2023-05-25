@@ -26,8 +26,8 @@ export const CardOverlay = styled.div`
     z-index: 3;
     button[role="download"] {
       background-color: transparent;
-      & svg {
-        fill: white;
+      & img {
+        filter: invert(100%);
         transform: scale(2);
       }
     }

@@ -10,8 +10,4 @@ export const DropDownList = styled.ul`
   background: white;
   border: 1px solid #dfdfe0;
   border-radius: 0.5rem;
-  @media (max-width: 540px) {
-    width: 10rem;
-    padding: 0.5rem 1rem;
-  }
 `;

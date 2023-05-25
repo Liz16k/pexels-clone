@@ -5,8 +5,7 @@ export const CategoryContainer = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  & > div {
-    display: flex;
-    gap: 1rem;
+  @media (max-width: 540px) {
+    flex-direction: column;
   }
-`
+`;

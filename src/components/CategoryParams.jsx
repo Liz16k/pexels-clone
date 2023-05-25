@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Amount } from "./../styles/elements/Amount";
 import { CategoryContainer } from "./../styles/elements/CategoryContainer";
 import { DropDownMenu } from "./DropDownMenu";
+import { FiltersContainer } from "../styles/elements/FiltersContainer";
 const CategoryParams = () => {
   const total = useSelector((state) => state.photos.responsePhotoAmount);
   return (
@@ -9,7 +10,7 @@ const CategoryParams = () => {
       <Amount>
         Фото <span>{total}</span>
       </Amount>
-      <div>
+      <FiltersContainer>
         <DropDownMenu
           paramName="orientation"
           options={{
@@ -28,7 +29,7 @@ const CategoryParams = () => {
             small: "маленький",
           }}
         />
-      </div>
+      </FiltersContainer>
     </CategoryContainer>
   );
 };
