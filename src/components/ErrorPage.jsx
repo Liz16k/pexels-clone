@@ -3,5 +3,5 @@ import { useRouteError } from "react-router-dom";
 export const ErrorPage = () => {
   const error = useRouteError();
   console.error(error);
-  return <h1>ErrorPage</h1>;
+  return <h2>ErrorPage</h2>;
 };

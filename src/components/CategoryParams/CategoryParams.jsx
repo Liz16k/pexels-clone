@@ -3,6 +3,7 @@ import { Amount } from "../elements/Amount.styles";
 import { CategoryContainer } from "./CategoryContainer.styles";
 import { DropDownMenu } from "./DropDownMenu";
 import { FiltersContainer } from "./FiltersContainer.styles";
+import { ORIENTATION_OPTIONS, SIZE_OPTIONS } from './../../utils/constants';
 const CategoryParams = () => {
   const total = useSelector((state) => state.photos.responsePhotoAmount);
   return (
@@ -13,21 +14,11 @@ const CategoryParams = () => {
       <FiltersContainer>
         <DropDownMenu
           paramName="orientation"
-          options={{
-            all: "все ориентации",
-            landscape: "горизонтальная",
-            portrait: "вертикальная",
-            square: "квадратное изображение",
-          }}
+          options={ORIENTATION_OPTIONS}
         />
         <DropDownMenu
           paramName="size"
-          options={{
-            all: "все размеры",
-            large: "большой",
-            medium: "средний",
-            small: "маленький",
-          }}
+          options={SIZE_OPTIONS}
         />
       </FiltersContainer>
     </CategoryContainer>
