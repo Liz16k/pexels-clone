@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import SearchForm from "../SearchForm/SearchForm";
 import { NavContainer } from "./NavContainer.styles";
 import { NavBarLogo } from "./NavBarLogo";
-import Nav from './Nav.styles';
+import Nav from "./Nav.styles";
 
 const NavBar = () => {
   const params = useParams();
   const [isTransparent, setTransparency] = useState(false);
+  const navRef = useRef(null);
 
   useEffect(() => {
     const header = document.querySelector("header");
-    const nav = document.querySelector("nav");
+    const nav = navRef.current;
     if (!header) setTransparency(false);
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,7 +32,7 @@ const NavBar = () => {
   }, [params]);
 
   return (
-    <Nav transparent={isTransparent}>
+    <Nav ref={navRef} transparent={isTransparent}>
       <NavContainer>
         <Link to="/">
           <NavBarLogo />

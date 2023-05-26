@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import Masonry from "react-masonry-css";
@@ -19,6 +19,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
   const photos = useSelector((state) => state.photos.loadedPhotos);
   const page = useSelector((state) => state.photos.page);
   const [isActive, setActive] = useState(true);
+  const sentinelRef = useRef(null);
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 900px)" });
 
@@ -35,7 +36,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
   }, [args.query, location]);
 
   useEffect(() => {
-    const sentinel = document.querySelector("#sentinel");
+    const sentinel = sentinelRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && isActive) {
@@ -95,7 +96,7 @@ export const InfiniteGallery = ({ queryFn, ...args }) => {
       ) : (
         <p>No results for this request. Try to refine your search query.</p>
       )}
-      <div id="sentinel" />
+      <div ref={sentinelRef} />
     </GalleryContainer>
   );
 };

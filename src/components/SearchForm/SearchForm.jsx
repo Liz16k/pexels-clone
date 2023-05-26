@@ -4,16 +4,19 @@ import { useParams } from "react-router-dom";
 import SearchButton from "./SearchButton.styles";
 import SearchContainer from "./SearchContainer.styles";
 import SearchInput from "./SearchInput.styles";
+import { useRef } from "react";
 
 const SearchForm = () => {
   const navigate = useNavigate();
   const params = useParams();
+  const inputRef = useRef(null);
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
       request: params.category,
     },
   });
+  const { ref, ...rest } = register("request");
 
   const onSubmit = (data) => {
     data.request && navigate(`search/${encodeURIComponent(data.request)}/`);
@@ -21,9 +24,7 @@ const SearchForm = () => {
   };
 
   const removeFocus = () => {
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
+    inputRef.current.blur();
   };
 
   return (
@@ -31,7 +32,12 @@ const SearchForm = () => {
       <SearchContainer>
         <SearchInput
           type="text"
-          {...register("request")}
+          name="request"
+          {...rest}
+          ref={(e) => {
+            ref(e);
+            inputRef.current = e;
+          }}
           placeholder="Поиск бесплатных изображений"
         />
         <SearchButton>

@@ -15,7 +15,4 @@ export const GalleryContainer = styled.div`
   & p {
     text-align: center;
   }
-  #sentinel {
-    height: 2rem;
-  }
 `;
