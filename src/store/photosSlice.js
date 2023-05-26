@@ -5,6 +5,12 @@ const initialState = {
   page: 1,
   likedPhotos: [],
   responsePhotoAmount: 0,
+  bgPhotoData: {
+    src: "/",
+    alt: "",
+    photographer: "",
+    photographer_url: "/",
+  },
 };
 
 const photosSlice = createSlice({
@@ -36,6 +42,9 @@ const photosSlice = createSlice({
     updateTotalPhotos: (state, action) => {
       state.responsePhotoAmount = action.payload;
     },
+    updateBgPhoto: (state, action) => {
+      state.bgPhotoData = action.payload;
+    },
   },
 });
 
@@ -46,5 +55,6 @@ export const {
   clrGallery,
   loadPage,
   updateTotalPhotos,
+  updateBgPhoto,
 } = photosSlice.actions;
 export default photosSlice.reducer;

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { downloadImage } from "../../utils/api";
+import { downloadImage } from "../../utils/downloadImage";
 import { addLikedPhoto, removeLikedPhoto } from "../../store/photosSlice";
 import CardButton from "./CardButton.styles";
 import { CardOverlay } from "./CardOverlay.styles";

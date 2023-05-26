@@ -1,20 +1,14 @@
 import { createClient } from "pexels";
-import { saveAs } from "file-saver";
+import { getRandomNum } from "./getRandomNum";
 
 const apikey = import.meta.env.VITE_PEXELS_API_KEY;
 const client = createClient(apikey);
 
-const loadBg = () => {
-  const bgImage = document.getElementById("bgImage");
-  const bgCaption = document.getElementById("bgCaption");
-  getCuratedPhotos({ pageNum: 1, perPage: 5 })
-    .then((photos) => photos[getRandomNum(5)])
-    .then((photo) => {
-      bgImage.setAttribute("src", photo.src.landscape);
-      bgImage.setAttribute("alt", photo.alt);
-      bgCaption.setAttribute("href", photo.photographer_url);
-      bgCaption.textContent = photo.photographer;
-    });
+const getNewBgPhoto = async () => {
+  const data = await getCuratedPhotos({ pageNum: 1, perPage: 5 });
+  const photo = data[getRandomNum(5)];
+  const { src, alt, photographer_url, photographer } = photo;
+  return { src: src.landscape, alt, photographer_url, photographer };
 };
 
 const getCuratedPhotos = async ({ pageNum = 1, perPage = 1 }) => {
@@ -41,13 +35,4 @@ const getCategoryPhotos = async ({
   return { photos: response.photos, total: response.total_results };
 };
 
-function downloadImage(url, alt) {
-  const filename = alt.split(" ").join("_");
-  saveAs(url, filename);
-}
-
-function getRandomNum(range) {
-  return Math.floor(Math.random() * range);
-}
-
-export { getCategoryPhotos, getCuratedPhotos, loadBg, downloadImage };
+export { getCategoryPhotos, getCuratedPhotos, getNewBgPhoto };

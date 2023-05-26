@@ -1,5 +1,7 @@
 import { useEffect } from "react";
-import { loadBg } from "../../utils/api";
+import { useDispatch, useSelector } from "react-redux";
+import { getNewBgPhoto } from "../../utils/api";
+import { updateBgPhoto } from "../../store/photosSlice";
 import Suggestions from "./Suggestions";
 import BgImg from "./BgImg.styles";
 import SearchForm from "../SearchForm/SearchForm";
@@ -8,14 +10,19 @@ import { TransparentParagraph } from "../elements/TransparentParagraph.styles";
 import { Attribution } from "../elements/Attribution.styles";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const bgImage = useSelector((state) => state.photos.bgPhotoData);
+  const { src, alt, photographer, photographer_url } = bgImage
   useEffect(() => {
-    loadBg();
+    getNewBgPhoto().then((photoData) => {
+      dispatch(updateBgPhoto(photoData));
+    });
   }, []);
 
   return (
     <header>
       <HeaderContainer>
-        <BgImg id="bgImage" />
+        <BgImg src={src} alt={alt} />
         <h1>
           Лучшие бесплатные стоковые фото, изображения без роялти и видео от
           талантливый авторов.
@@ -27,7 +34,9 @@ const Header = () => {
         </TransparentParagraph>
         <Attribution>
           <span>Автор фото —</span>
-          <a id="bgCaption" href="/" target="_blank"></a>
+          <a href={photographer_url} target="_blank" rel="noopener noreferrer">
+            {photographer}
+          </a>
         </Attribution>
       </HeaderContainer>
     </header>
